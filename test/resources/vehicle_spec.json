@@ -1,0 +1,9 @@
+{
+  "vehicleinfo_list":[
+    {"vid":1, "x":0.0, "y":0.0, "capacity":5},
+    {"vid":2, "x":0.0, "y":0.0, "capacity":5},
+    {"vid":3, "x":0.0, "y":0.0, "capacity":5},
+    {"vid":4, "x":0.0, "y":0.0, "capacity":5},
+    {"vid":5, "x":0.0, "y":0.0, "capacity":5}
+  ]
+}
