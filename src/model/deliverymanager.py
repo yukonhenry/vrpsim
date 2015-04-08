@@ -4,6 +4,8 @@ from core_utilities.singletonlite import DestType, WorkOrderType
 
 
 class DeliveryManager(object):
+    ''' Delivery Manager manages vehicle resources and their routes
+    '''
     def __init__(self, env):
         # simulation environment
         self.env = env
@@ -23,11 +25,12 @@ class DeliveryManager(object):
         dist_to_producer = closest_dict["dist"]
         closest_vehicle = self._vehicle_list[self.vindexerGet(closest_vid)]
         closest_vehicle.dispatch(dest=plocation, wtype=workorder.wtype, dist=dist_to_producer,
+                                 ready_time=workorder.ready_time,
                                  remaining_workorder=remaining_workorder)
 
     def find_closest_available_vehicle(self, plocation):
         distance_list = [{"vid":x.vid, "dist":x.location.distance_to(plocation)}
-                         for x in self.vehicle_list  if x.drive_active]
+                         for x in self.vehicle_list  if x.drive_event]
         min_dict = min(distance_list, key=itemgetter("dist"))
         return min_dict
 
