@@ -9,7 +9,7 @@ def main():
     olist = read_json("resources/order_spec.json", "orderinfo_list")
     sa.prepare_simulation(producerinfo_list=plist, vehicleinfo_list=vlist,
                           orderinfo_list=olist)
-    sa.simulation_run(100.0)
+    sa.simulation_run(120.0)
     sa.export_results()
 
 if __name__ == '__main__':

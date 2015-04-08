@@ -3,13 +3,13 @@ from core_utilities.singletonlite import DestType, VehicleState, WorkOrderType
 
 
 class Vehicle(object):
-    def __init__(self, env, vid, initial_location, capacity):
+    def __init__(self, env, vid, initial_location, capacity=5, velocity=10.0):
         self._vid = vid
         self._location = initial_location
         self.capacity = capacity
         self._state = VehicleState.Idle
         # fiexed vehicle velocity value for now
-        self.velocity = 15.0
+        self.velocity = velocity
         self.env = env
         self.current_load = 0
         self.current_workorder = None

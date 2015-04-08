@@ -58,7 +58,7 @@ class SimulationAdmin(object):
 
     def create_vehicle_list(self, vehicleinfo_list):
         self.vehicle_list = [Vehicle(env=self.env, vid=x["vid"], initial_location=Location(x["x"],x["y"]),
-                                     capacity=x["capacity"]) for x in vehicleinfo_list]
+                                     capacity=x["capacity"], velocity=x["velocity"]) for x in vehicleinfo_list]
 
     def prepare_simulation(self, producerinfo_list, vehicleinfo_list, orderinfo_list):
         # create list of producer of goods

@@ -29,6 +29,6 @@ def simadmin():
 
 
 def test_workorder_generate(simadmin):
-    simadmin.simulation_run(100.0)
+    simadmin.simulation_run(120.0)
     simadmin.export_results()
     assert True
