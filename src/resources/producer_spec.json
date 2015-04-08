@@ -1,0 +1,9 @@
+{
+  "producerinfo_list":[
+    {"pid":1, "x":52.0, "y":10.0, "production_time":2.0},
+    {"pid":2, "x":2.0, "y":14.0, "production_time":4.0},
+    {"pid":3, "x":12.0, "y":40.0, "production_time":5.0},
+    {"pid":4, "x":21.0, "y":5.0, "production_time":2.0},
+    {"pid":5, "x":84.0, "y":65.0, "production_time":1.0}
+  ]
+}

@@ -1,4 +1,4 @@
-__author__ = 'henry'
+# Copyright YukonTR 2015
 
 import pytest
 
@@ -16,9 +16,9 @@ def simadmin():
     sa = SimulationAdmin(worldsize=200.0)
     # read spec's for producers and instantiate producer-related objects
     # with specified parameters
-    plist = read_json("test/resources/producer_spec.json", "producerinfo_list")
-    vlist = read_json("test/resources/vehicle_spec.json", "vehicleinfo_list")
-    olist = read_json("test/resources/order_spec.json", "orderinfo_list")
+    plist = read_json("resources/producer_spec.json", "producerinfo_list")
+    vlist = read_json("resources/vehicle_spec.json", "vehicleinfo_list")
+    olist = read_json("resources/order_spec.json", "orderinfo_list")
     sa.prepare_simulation(producerinfo_list=plist, vehicleinfo_list=vlist,
                           orderinfo_list=olist)
     print sa

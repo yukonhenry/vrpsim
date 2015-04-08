@@ -55,3 +55,7 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# intellij idea files
+# reference https://intellij-support.jetbrains.com/entries/23393067
+.idea/workspace.xml

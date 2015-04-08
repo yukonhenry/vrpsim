@@ -1,0 +1,34 @@
+{
+  "orderinfo_list": [
+    {
+      "pid": 1,
+      "dist_type": "hp",
+      "lambd_rate": 2.0,
+      "workorder_num": 20
+    },
+    {
+      "pid": 2,
+      "dist_type": "hp",
+      "lambd_rate": 0.1,
+      "workorder_num": 8
+    },
+    {
+      "pid": 3,
+      "dist_type": "hp",
+      "lambd_rate": 0.3,
+      "workorder_num": 10
+    },
+    {
+      "pid": 4,
+      "dist_type": "hp",
+      "lambd_rate": 1.0,
+      "workorder_num": 15
+    },
+    {
+      "pid": 5,
+      "dist_type": "hp",
+      "lambd_rate": 2.0,
+      "workorder_num": 22
+    }
+  ]
+}

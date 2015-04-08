@@ -21,7 +21,7 @@ class ExportPlot(object):
         # output to static HTML file
         output_file("out/"+self.filename_base+"_hist.html")
 
-        p = figure(title="Histogram", background_fill="#E8DDCB")
+        p = figure(title="Stat Histogram", background_fill="#E8DDCB")
         p.quad(top=hist, bottom=0, left=edges[:-1], right=edges[1:],
                fill_color="#036564", line_color="#033649")
 
@@ -37,13 +37,13 @@ class ExportPlot(object):
         gridplot_list = list()
         for data in data_list:
             hist, edges = np.histogram(data, density=True, bins=50)
-            s = figure(title="Histogram", background_fill="#E8DDCB")
+            s = figure(title="InterArrival Histogram", background_fill="#E8DDCB")
             s.quad(top=hist, bottom=0, left=edges[:-1], right=edges[1:],
                    fill_color="#036564", line_color="#033649")
 
             # customize axes
             xa, ya = s.axis
-            xa.axis_label = 'x'
+            xa.axis_label = 'x (interarrival time)'
             ya.axis_label = 'Pr(x)'
             gridplot_list.append(s)
         p = gridplot([gridplot_list])
