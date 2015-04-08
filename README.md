@@ -12,3 +12,5 @@ Entry points:
 - (test) test/test_producer.py
   - utilizes py.test test frameork
   - library config info in src/configinfo.md
+- (notebook) Not an entry point, but ipython notebook has experiments on arrival processes
+  - time-varying rate characterization for non-homogeneous poisson process 
