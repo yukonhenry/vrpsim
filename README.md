@@ -1,5 +1,5 @@
 # Vehicle Routing Problem Simulator
-Python/Simpy-based simulation platform to prototype Vehicle Routing Problem models and algorithms.  Initial implementation investigates following three areas:
+Python/Simpy-based simulation platform to prototype Vehicle Routing Problem models and algorithms.  Initial implementation driven by focus on following three areas:
 
 1. Statistical modeling of arrival rates for work orders, especially with respect to time-varying demands and modeling of transitions between busy/non-busy time periods.
 2. Closed-form (or near closed-form) first-order resource planning based on demand forecast and simplifying assumptions.
