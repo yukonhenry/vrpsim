@@ -1,6 +1,5 @@
 # Copyright YukonTR 2015
 from operator import itemgetter
-from core_utilities.singletonlite import DestType, WorkOrderType
 
 
 class DeliveryManager(object):
@@ -12,6 +11,7 @@ class DeliveryManager(object):
         self._vehicle_list = None
         self.vindexerGet = lambda x: dict((p.vid,i) for i,p in enumerate(
             self.vehicle_list)).get(x)
+        self.dashboard_run_process = env.process(self.dashboard_run(env))
 
     def set_workorder(self, workorder, remaining_workorder):
         # workorder ia assigned from producer (after producer receives workorder event after arrival rate expiration
@@ -30,9 +30,12 @@ class DeliveryManager(object):
 
     def find_closest_available_vehicle(self, plocation):
         distance_list = [{"vid":x.vid, "dist":x.location.distance_to(plocation)}
-                         for x in self.vehicle_list  if x.drive_event]
+                         for x in self.vehicle_list if x.drive_event and x.has_space()]
         min_dict = min(distance_list, key=itemgetter("dist"))
         return min_dict
+
+    def dashboard_run(self, env):
+        pass
 
     @property
     def vehicle_list(self):

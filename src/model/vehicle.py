@@ -12,19 +12,29 @@ class Vehicle(object):
         self.velocity = velocity
         self.env = env
         self.current_load = 0
-        self.current_workorder = None
+        self.destination = None
         # ref https://simpy.readthedocs.org/en/latest/topical_guides/process_interaction.html
         # car driving process initiated when Vehicle object created
-        self.engine_run = env.process(self.engine_run(env))
+        self.engine_run_process = env.process(self.engine_run(env))
         self.drive_event = self.env.event()
 
+
+    @property
+    def location(self):
+        return self._location
+
+    @property
+    def vid(self):
+        return self._vid
 
     def dispatch(self, dest, wtype, dist, remaining_workorder, ready_time=None):
         ''' dispactch called from delivery manager '''
         print "dispatched workorder %s" % (wtype,)
         self.current_drive = {"dest":dest, "dist":dist, "wtype":wtype, "ready_time":ready_time}
         self.next_drive = remaining_workorder
+        # releases drive_event, enables driving
         self.drive_event.succeed()
+        # create next drive event
         self.drive_event = self.env.event()
 
     def engine_run(self, env):
@@ -74,10 +84,8 @@ class Vehicle(object):
             print "Vehicle %d delivering at %s" % (self._vid, destination)
             self.current_load -= 1
 
-    @property
-    def location(self):
-        return self._location
+    def has_space(self):
+        return self.current_load < self.capacity
 
-    @property
-    def vid(self):
-        return self._vid
+    def __str__(self):
+        return_str = "Vehicle %d, with load %d, state=%s, at location %s, m"
